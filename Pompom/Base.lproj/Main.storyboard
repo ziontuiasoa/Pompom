@@ -11,7 +11,7 @@
         <scene sceneID="Zbc-oA-ois">
             <objects>
                 <tableViewController id="SLj-JC-Sh7" customClass="TaskListViewController" customModule="Pompom" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1C7-5V-cBc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1C7-5V-cBc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="separatorColor" red="0.21417487160000001" green="0.39798862439999999" blue="0.52106543530000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -22,7 +22,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="nOd-Cc-c6q">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" id="nOd-Cc-c6q" customClass="TaskCell" customModule="Pompom" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nOd-Cc-c6q" id="lPb-Ru-9Kh">
@@ -30,9 +30,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv0-Bo-d6H">
-                                            <rect key="frame" x="20" y="5" width="0.0" height="50.5"/>
+                                            <rect key="frame" x="20" y="5" width="304" height="50.5"/>
+                                            <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.21417487160000001" green="0.39798862439999999" blue="0.52106543530000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdy-UI-Q46">
@@ -41,21 +42,29 @@
                                                 <constraint firstAttribute="height" constant="50" id="Afa-kI-yue"/>
                                                 <constraint firstAttribute="width" constant="60" id="VHE-Ga-TDQ"/>
                                             </constraints>
-                                            <color key="tintColor" red="0.83497327159578605" green="0.58053434119167369" blue="0.22893804462728654" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.83529411760000005" green="0.58039215690000001" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="circle" catalog="system"/>
+                                            <connections>
+                                                <action selector="checkOffButton:" destination="nOd-Cc-c6q" eventType="touchUpInside" id="5nl-qC-sXr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="cdy-UI-Q46" secondAttribute="bottom" constant="5" id="5o1-T8-otX"/>
-                                        <constraint firstItem="cdy-UI-Q46" firstAttribute="top" secondItem="lPb-Ru-9Kh" secondAttribute="top" constant="5" id="8SV-mB-sBQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="cdy-UI-Q46" secondAttribute="bottom" constant="5" id="A4i-5B-iN6"/>
                                         <constraint firstItem="Pv0-Bo-d6H" firstAttribute="top" secondItem="lPb-Ru-9Kh" secondAttribute="top" constant="5" id="CIh-lh-nwq"/>
                                         <constraint firstItem="Pv0-Bo-d6H" firstAttribute="leading" secondItem="lPb-Ru-9Kh" secondAttribute="leading" constant="20" id="DYq-OY-1M0"/>
                                         <constraint firstAttribute="trailing" secondItem="cdy-UI-Q46" secondAttribute="trailing" constant="20" id="NpD-3t-5p7"/>
+                                        <constraint firstItem="cdy-UI-Q46" firstAttribute="top" secondItem="lPb-Ru-9Kh" secondAttribute="top" constant="5" id="Nta-Wj-JMA"/>
+                                        <constraint firstItem="cdy-UI-Q46" firstAttribute="leading" secondItem="Pv0-Bo-d6H" secondAttribute="trailing" constant="10" id="fBr-XH-tAd"/>
                                         <constraint firstAttribute="bottom" secondItem="Pv0-Bo-d6H" secondAttribute="bottom" constant="5" id="fW3-2G-06Y"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.93725490199999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.90588235289999997" green="0.93725490199999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="checkOffButton" destination="cdy-UI-Q46" id="OMH-gn-gRH"/>
+                                    <outlet property="taskLabel" destination="Pv0-Bo-d6H" id="5DH-8X-aaO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA3-cu-h6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360.8695652173915" y="-24.107142857142858"/>
+            <point key="canvasLocation" x="1351" y="-125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ujs-ky-AYq">
